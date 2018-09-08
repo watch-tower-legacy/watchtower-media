@@ -6,8 +6,7 @@
     z-index: 9;
     background-color: #002245;
 }
-
-#mainHeader {
+ #mainHeader {
     font-family: 'Roboto', sans-serif;
     font-weight: 1000;
     position:relative;
@@ -45,12 +44,10 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center; 
-
-    background-color: rgba(0,0,0,0.68);
+     background-color: rgba(0,0,0,0.68);
     background-blend-mode: darken;
 }
-
-.search-container {
+ .search-container {
     align-content: center;
     width:350px;
     padding-left:10px;
@@ -64,13 +61,11 @@
     left:50%;
     top:50%;
 }
-
-body {
+ body {
     margin: 0;
     background: whitesmoke;
 }
-
-.search-container button {
+ .search-container button {
     float: right;
     
     padding: 5px 5px;
@@ -84,5 +79,4 @@ body {
     font-size: 27px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
-  
   
