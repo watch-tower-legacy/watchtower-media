@@ -12,7 +12,7 @@ function ProcessClick(elem){
         if($(v).is(":checked")){
             var tickerNAME = $(elem).parent().find("#reee").attr("class") 
             var techtype = $(v).attr('name')
-//
+            console.log(tickerNAME)
             //  $.getJSON("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=" + names[i] + "&outputsize=full&apikey=PGQY7BQGQGH7EF0E&datatype=json", function(data) {
                 console.log("getting " + techtype)
                 $.get(("https://www.alphavantage.co/query?function=" + techtype + "&symbol=" + tickerNAME + "&interval=daily&time_period=200&series_type=close&apikey=PGQY7BQGQGH7EF0E&datatype=json"), function(q,t){
@@ -27,42 +27,14 @@ function ProcessClick(elem){
                         RAWSERIES = RAWSERIES.reverse()
                         console.log(RAWSERIES)
 
-                            seriesOptions.push({
-                                name: techtype,
-                                data: RAWSERIES
-                            })
-                         c.update({
-                                yAxis:{
-                                plotLines: [{
-                                       value: 40,
-                                                color: 'red',
-                                                width: 2,
-                                                id: 'plot-line-1'
-                                    }]
+                        newName = tickerNAME + " " + techtype
 
-                              },
-                            plotOptions: {
-                                series: {
-                                    compare: 'percent',
-                                    showInNavigator: true
-                                }
-                            },
-
-                                plotOptions: {
-                                    series: {
-                                        compare: 'percent',
-                                        showInNavigator: true
-                                    }
-                                },
-
-                                tooltip: {
-                                    pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.change}%)<br/>',
-                                    valueDecimals: 2,
-                                    split: true
-                                },
-
-                            series: seriesOptions
-                            })
+                        seriesOptions.push({
+                            name: newName,
+                            data: RAWSERIES
+                        })
+                        seriesCounter++
+                        createChart()
                 })
 
         }
@@ -260,7 +232,7 @@ $.each(names, function (i, name) {
 		timeSeries = timeSeries.reverse()
         console.log(timeSeries)
 		seriesOptions[i] = {
-			name: name,
+			name: name.toUpperCase(),
 			data: timeSeries
 		};
 		seriesCounter += 1
